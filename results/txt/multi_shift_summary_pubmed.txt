@@ -1,0 +1,19 @@
+=== MULTI-SHIFT EXPERIMENT RESULTS ===
+  N conditions: 54
+  D_Σ range:  [121, 122809]
+  M²_A range: [54, 1803]
+  AUC range:  [0.4994, 0.9269]
+
+  Manipulation check:
+    Spearman(normal_shift, D_Σ) = +0.9229  (expect: positive)
+
+  Theory chain:
+    Spearman(D_Σ,  M²_A): r=-0.8629  p=0.00000  (expect: negative)
+    Spearman(M²_A, AUC):  r=+0.9484  p=0.00000  (expect: positive)
+    Spearman(D_Σ,  AUC):  r=-0.8266  p=0.00000  (expect: negative)
+
+  Regressions:
+    M²_A = 893.4 + (-3.0307)·√D_Σ   R²=0.4427
+    AUC  = 0.5623 + (0.000293)·M²_A   R²=0.7740
+
+  M²_N range: [60.0, 63.0]  (ref: 64)

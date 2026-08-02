@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# LaTeX build artifacts
+latex/main.pdf
+latex/main.aux
+latex/main.bbl
+latex/main.blg
+latex/main.log
+latex/main.out
+latex/main.dvi
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp

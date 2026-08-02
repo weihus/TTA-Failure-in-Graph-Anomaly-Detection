@@ -1,0 +1,14 @@
+
+[shift=0.0]
+  跨条件 AUC 下降比例: 40/60 (66.7%)
+  Kruskal-Wallis (方法间 ΔAUC 差异): H=40.376  p=0.0000
+  [TENT] Spearman(D_Σ, M²_A) = -0.259  p=0.2709  (N=20)
+  [SHOT] Spearman(D_Σ, M²_A) = -0.701  p=0.0006  (N=20)
+  [BN-adapt] Spearman(D_Σ, M²_A) = +0.767  p=0.0001  (N=20)
+
+[shift=0.1]
+  跨条件 AUC 下降比例: 25/60 (41.7%)
+  Kruskal-Wallis (方法间 ΔAUC 差异): H=3.947  p=0.1390
+  [TENT] Spearman(D_Σ, M²_A) = +0.364  p=0.1147  (N=20)
+  [SHOT] Spearman(D_Σ, M²_A) = +0.701  p=0.0006  (N=20)
+  [BN-adapt] Spearman(D_Σ, M²_A) = -0.764  p=0.0001  (N=20)

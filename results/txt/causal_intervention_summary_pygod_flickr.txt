@@ -1,0 +1,8 @@
+
+[inj_flickr]  Source AUC=0.8110
+  Isotropic regression:   M²_A~δ R²=0.7641   AUC~δ R²=0.9101
+  Bootstrap CI (AUC~δ slope, 95%): [-0.11354, -0.05318]
+  Matched comparison (δ=1.0 anisotropic vs real TTA final step):
+    Synthetic AUC = 0.9855   Real TTA AUC = 0.7169   Gap = -0.2686
+  Wilcoxon (real TTA AUC vs D_Σ-matched synthetic prediction, N=80): stat=398.00  p=0.0000
+    Mean residual = +0.0789   (significant gap → additional mechanism beyond D_Σ exists)
