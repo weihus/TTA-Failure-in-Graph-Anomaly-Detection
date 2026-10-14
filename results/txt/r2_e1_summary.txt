@@ -1,0 +1,122 @@
+========================================================================
+E1 DEPLOYABLE EVALUATION: ΔAUC by layer (vs No-TTA same layer)
+========================================================================
+
+                                         AUC
+dataset  shift method layer                 
+citeseer 0.0   No-TTA L1_oracle_maha   0.993
+                      L2_oracle_knn10  0.991
+                      L3a_src_maha     0.993
+               SHOT   L1_oracle_maha   0.937
+                      L2_oracle_knn10  0.943
+                      L3a_src_maha     0.887
+                      L3b_head         0.423
+               TENT   L1_oracle_maha   0.897
+                      L2_oracle_knn10  0.959
+                      L3a_src_maha     0.840
+                      L3b_head         0.421
+         0.1   No-TTA L1_oracle_maha   0.990
+                      L2_oracle_knn10  0.989
+                      L3a_src_maha     0.990
+               SHOT   L1_oracle_maha   0.916
+                      L2_oracle_knn10  0.938
+                      L3a_src_maha     0.866
+                      L3b_head         0.432
+               TENT   L1_oracle_maha   0.886
+                      L2_oracle_knn10  0.957
+                      L3a_src_maha     0.831
+                      L3b_head         0.424
+cora     0.0   No-TTA L1_oracle_maha   0.996
+                      L2_oracle_knn10  0.996
+                      L3a_src_maha     0.996
+               SHOT   L1_oracle_maha   0.894
+                      L2_oracle_knn10  0.921
+                      L3a_src_maha     0.838
+                      L3b_head         0.325
+               TENT   L1_oracle_maha   0.814
+                      L2_oracle_knn10  0.927
+                      L3a_src_maha     0.679
+                      L3b_head         0.339
+         0.1   No-TTA L1_oracle_maha   0.986
+                      L2_oracle_knn10  0.987
+                      L3a_src_maha     0.986
+               SHOT   L1_oracle_maha   0.849
+                      L2_oracle_knn10  0.903
+                      L3a_src_maha     0.808
+                      L3b_head         0.355
+               TENT   L1_oracle_maha   0.806
+                      L2_oracle_knn10  0.915
+                      L3a_src_maha     0.691
+                      L3b_head         0.403
+pubmed   0.0   No-TTA L1_oracle_maha   0.999
+                      L2_oracle_knn10  0.997
+                      L3a_src_maha     0.999
+               SHOT   L1_oracle_maha   0.893
+                      L2_oracle_knn10  0.938
+                      L3a_src_maha     0.919
+                      L3b_head         0.414
+               TENT   L1_oracle_maha   0.676
+                      L2_oracle_knn10  0.932
+                      L3a_src_maha     0.811
+                      L3b_head         0.428
+         0.1   No-TTA L1_oracle_maha   0.938
+                      L2_oracle_knn10  0.940
+                      L3a_src_maha     0.933
+               SHOT   L1_oracle_maha   0.722
+                      L2_oracle_knn10  0.872
+                      L3a_src_maha     0.792
+                      L3b_head         0.427
+               TENT   L1_oracle_maha   0.595
+                      L2_oracle_knn10  0.871
+                      L3a_src_maha     0.749
+                      L3b_head         0.440
+reddit   0.0   No-TTA L1_oracle_maha   0.666
+                      L2_oracle_knn10  0.594
+                      L3a_src_maha     0.666
+               SHOT   L1_oracle_maha   0.558
+                      L2_oracle_knn10  0.584
+                      L3a_src_maha     0.540
+                      L3b_head         0.477
+               TENT   L1_oracle_maha   0.564
+                      L2_oracle_knn10  0.583
+                      L3a_src_maha     0.521
+                      L3b_head         0.486
+         0.1   No-TTA L1_oracle_maha   0.608
+                      L2_oracle_knn10  0.572
+                      L3a_src_maha     0.602
+               SHOT   L1_oracle_maha   0.532
+                      L2_oracle_knn10  0.561
+                      L3a_src_maha     0.525
+                      L3b_head         0.484
+               TENT   L1_oracle_maha   0.539
+                      L2_oracle_knn10  0.529
+                      L3a_src_maha     0.534
+                      L3b_head         0.486
+
+MEAN ΔAUC by layer × method:
+method           SHOT  TENT
+layer                      
+L1_oracle_maha    NaN   NaN
+L2_oracle_knn10   NaN   NaN
+L3a_src_maha      NaN   NaN
+L3b_head          NaN   NaN
+
+Reading: L3a (source-stat maha, deployable) is the key row.
+If its ΔAUC matches L1, degradation is representation-level and
+deployable — R2-RC2 answered affirmatively. L3b head AUC trajectory
+answers RC1 (what the optimized head itself does).
+
+Head AUC trajectory (mean over runs, every 10 steps):
+method   SHOT   TENT
+step                
+0       0.431  0.431
+10      0.400  0.407
+20      0.402  0.407
+30      0.403  0.405
+40      0.405  0.406
+50      0.409  0.408
+60      0.413  0.414
+70      0.415  0.422
+80      0.417  0.429
+
+E7 CIRCULARITY: ρ(M_A^2, ΔAUC per layer), gradient methods:

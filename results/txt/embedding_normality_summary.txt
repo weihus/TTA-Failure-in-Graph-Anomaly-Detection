@@ -1,0 +1,18 @@
+================================================================
+EMBEDDING NORMALITY vs DEGRADATION
+================================================================
+
+Mean normality stats by method (across all datasets/seeds):
+         mardia_skew  mardia_kurt  henze_zirkler  shapiro_rej_rate  mean_excess_kurtosis
+method                                                                                  
+No-TTA  1.295125e+03        1.360          7.531             1.000               313.276
+SHOT    5.070163e+08    10865.377          2.123             0.992                86.393
+TENT    1.679842e+08     6136.371          2.063             0.943               214.405
+
+Spearman(non-Gaussianity stat, delta_AUC_maha) on adapted runs:
+  mardia_skew            r=+0.469  p=0.0002
+  henze_zirkler          r=+0.741  p=0.0000
+  shapiro_rej_rate       r=+0.040  p=0.7621
+  mean_excess_kurtosis   r=+nan  p=nan
+
+If |r| is small / p large => non-Gaussianity does NOT drive degradation.

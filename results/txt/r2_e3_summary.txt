@@ -1,0 +1,44 @@
+========================================================================
+E3 DRIFT-ONLY INTERVENTION: synthetic AUC by channel × delta
+(δ=1 = magnitude-matched to real TTA drift)
+========================================================================
+
+Real TTA endpoint AUC:
+dataset
+citeseer    0.926
+cora        0.901
+pubmed      0.676
+reddit      0.569
+
+Synthetic AUC by channel × delta:
+dataset              citeseer   cora  pubmed  reddit
+channel       delta                                 
+anomaly_drift 0.00      0.992  0.996   0.999   0.666
+              0.25      1.000  1.000   1.000   0.989
+              0.50      1.000  1.000   1.000   1.000
+              0.75      1.000  1.000   1.000   1.000
+              1.00      1.000  1.000   1.000   1.000
+              1.50      1.000  1.000   1.000   1.000
+              2.00      1.000  1.000   1.000   1.000
+              3.00      1.000  1.000   1.000   1.000
+normal_drift  0.00      0.992  0.996   0.999   0.666
+              0.25      0.983  0.982   0.946   0.954
+              0.50      0.986  0.987   0.965   0.976
+              0.75      0.990  0.997   0.991   0.983
+              1.00      0.993  1.000   0.998   0.992
+              1.50      0.988  0.997   0.992   0.982
+              2.00      0.984  0.993   0.981   0.979
+              3.00      0.980  0.988   0.969   0.978
+
+Gap (synthetic δ=1 − real TTA) per channel:
+  normal_drift    cora: +0.098  citeseer: +0.067  pubmed: +0.321  reddit: +0.423
+  anomaly_drift   cora: +0.099  citeseer: +0.074  pubmed: +0.324  reddit: +0.431
+
+Reading: normal_drift applies each normal node's OWN real-TTA
+displacement (assimilation toward the population), anomaly_drift
+likewise for anomalies. At δ=1 a channel reproduces the real endpoint
+iff that channel alone suffices. Note normal_drift subsumes centroid
+drift AND normal-covariance change (they are entangled in per-node
+displacement); anomaly_drift isolates the anomaly-side channel.
+A rigid common translation was rejected as a protocol: it cannot
+change within-class geometry and trivially saturates AUC→1.

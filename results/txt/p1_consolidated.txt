@@ -1,0 +1,87 @@
+================================================================================
+P1 FOUR-METHOD COMPARISON: mean ΔAUC by dataset × method
+================================================================================
+
+[scorer = maha_diag]
+method            TENT    SHOT  Pseudo-label  BN-adapt
+dataset  shift                                        
+citeseer 0.0   -0.0662 -0.0443       -0.0256    0.0001
+         0.1   -0.0709 -0.0503       -0.0359   -0.0008
+cora     0.0   -0.1449 -0.0932       -0.0426    0.0000
+         0.1   -0.1573 -0.1117       -0.0627    0.0041
+pubmed   0.0   -0.3016 -0.0699       -0.0041   -0.0001
+         0.1   -0.3005 -0.1419       -0.0218   -0.0346
+
+[scorer = knn_k10]
+method            TENT    SHOT  Pseudo-label  BN-adapt
+dataset  shift                                        
+citeseer 0.0   -0.0344 -0.0463       -0.0194    0.0006
+         0.1   -0.0344 -0.0506       -0.0240   -0.0010
+cora     0.0   -0.0686 -0.0636       -0.0358   -0.0017
+         0.1   -0.0727 -0.0731       -0.0403   -0.0013
+pubmed   0.0   -0.0643 -0.0481       -0.0050   -0.0001
+         0.1   -0.0684 -0.0422       -0.0014   -0.0720
+
+--------------------------------------------------------------------------------
+Average ΔAUC across datasets (per shift × method × scorer)
+--------------------------------------------------------------------------------
+scorer              knn_k10  maha_diag
+shift method                          
+0.0   BN-adapt      -0.0004    -0.0000
+      No-TTA         0.0000     0.0000
+      Pseudo-label  -0.0201    -0.0241
+      SHOT          -0.0527    -0.0691
+      TENT          -0.0558    -0.1709
+0.1   BN-adapt      -0.0248    -0.0105
+      No-TTA         0.0000     0.0000
+      Pseudo-label  -0.0219    -0.0401
+      SHOT          -0.0553    -0.1013
+      TENT          -0.0585    -0.1762
+
+================================================================================
+STATISTICAL TESTS (Friedman + pairwise Wilcoxon, blocks=dataset×seed)
+================================================================================
+
+[scorer = maha_diag]
+  shift=0.0: Friedman χ²=45.00, p=9.253e-10  (methods=['TENT', 'SHOT', 'Pseudo-label', 'BN-adapt'])
+      TENT         vs SHOT        : W=0.0, p=6.104e-05
+      TENT         vs Pseudo-label: W=0.0, p=6.104e-05
+      TENT         vs BN-adapt    : W=0.0, p=6.104e-05
+      SHOT         vs Pseudo-label: W=0.0, p=6.104e-05
+      SHOT         vs BN-adapt    : W=0.0, p=6.104e-05
+      Pseudo-label vs BN-adapt    : W=0.0, p=6.104e-05
+  shift=0.1: Friedman χ²=40.04, p=1.045e-08  (methods=['TENT', 'SHOT', 'Pseudo-label', 'BN-adapt'])
+      TENT         vs SHOT        : W=0.0, p=6.104e-05
+      TENT         vs Pseudo-label: W=0.0, p=6.104e-05
+      TENT         vs BN-adapt    : W=0.0, p=6.104e-05
+      SHOT         vs Pseudo-label: W=1.0, p=0.0001221
+      SHOT         vs BN-adapt    : W=0.0, p=6.104e-05
+      Pseudo-label vs BN-adapt    : W=13.0, p=0.005371
+
+[scorer = knn_k10]
+  shift=0.0: Friedman χ²=41.00, p=6.539e-09  (methods=['TENT', 'SHOT', 'Pseudo-label', 'BN-adapt'])
+      TENT         vs SHOT        : W=43.0, p=0.3591
+      TENT         vs Pseudo-label: W=0.0, p=6.104e-05
+      TENT         vs BN-adapt    : W=0.0, p=6.104e-05
+      SHOT         vs Pseudo-label: W=0.0, p=6.104e-05
+      SHOT         vs BN-adapt    : W=0.0, p=6.104e-05
+      Pseudo-label vs BN-adapt    : W=0.0, p=6.104e-05
+  shift=0.1: Friedman χ²=16.52, p=0.000887  (methods=['TENT', 'SHOT', 'Pseudo-label', 'BN-adapt'])
+      TENT         vs SHOT        : W=48.0, p=0.5245
+      TENT         vs Pseudo-label: W=0.0, p=6.104e-05
+      TENT         vs BN-adapt    : W=15.0, p=0.008362
+      SHOT         vs Pseudo-label: W=0.0, p=6.104e-05
+      SHOT         vs BN-adapt    : W=15.0, p=0.008362
+      Pseudo-label vs BN-adapt    : W=55.0, p=0.804
+
+================================================================================
+MECHANISM HETEROGENEITY (Reviewer R1)
+================================================================================
+Interpretation guide:
+  - Entropy family (TENT, SHOT): dominated by majority non-anomalous nodes.
+  - Pseudo-label: gradient flows from BOTH confident-anomaly and confident-normal
+    pseudo-labels, so it is NOT majority-dominated in the same way.
+  - BN-adapt: zero-gradient statistic adaptation.
+If Pseudo-label / BN-adapt behave DIFFERENTLY from TENT/SHOT, the degradation is
+NOT a generic property of 'all adaptation' but specific to normal-dominated
+entropy objectives — which is the narrowed, honest claim of the revision.

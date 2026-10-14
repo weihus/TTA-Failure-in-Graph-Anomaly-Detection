@@ -22,29 +22,10 @@ import scipy.stats as ss
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from config import results_csv, figure
-from style import C
+from style import C, set_style, set_ax_grid, save_fig
 
-# ── Global style (NeurIPS: serif, large fonts, no grid) ──────────────────────
-plt.rcParams.update({
-    "font.family":      "serif",
-    "font.serif":       ["Times New Roman", "DejaVu Serif", "serif"],
-    "font.size":        10,
-    "axes.titlesize":   14,
-    "axes.labelsize":   12,
-    "xtick.labelsize":  10,
-    "ytick.labelsize":  10,
-    "legend.fontsize":  10,
-    "figure.dpi":       150,
-    "savefig.dpi":      300,
-    "axes.linewidth":   0.8,
-    "xtick.major.width": 0.6,
-    "ytick.major.width": 0.6,
-    "xtick.major.size":  4,
-    "ytick.major.size":  4,
-    "lines.linewidth":   1.8,
-    "lines.markersize":  5,
-    "mathtext.fontset": "stix",  # matches serif font
-})
+# ── Global style: shared with fig2/fig3/fig4 (sans-serif, two-column legible) ─
+set_style()
 
 # ── Academic low-saturation colors (Seaborn colorblind) ─────────────────────
 # Use C from style.py: TENT=#0173b2, SHOT=#d55e00, BN-adapt=#029e73
@@ -86,8 +67,8 @@ ax1.axhline(src_auc, color=".5", lw=0.8, ls="--", alpha=0.5,
 # AUC curve (left axis)
 ln1 = ax1.plot(traj["step"], traj["auc"],
                color=C_METHOD["TENT"], lw=1.8, alpha=0.9, label="AUC")[0]
-ax1.set_xlabel("TTA step", fontsize=12)
-ax1.set_ylabel("AUC", fontsize=12, color=C_METHOD["TENT"])
+ax1.set_xlabel("TTA step", fontsize=8)
+ax1.set_ylabel("AUC", fontsize=8, color=C_METHOD["TENT"])
 ax1.tick_params(axis="y", labelcolor=C_METHOD["TENT"])
 
 # D_Σ curve (right axis)
@@ -95,18 +76,18 @@ ax1b = ax1.twinx()
 ln2 = ax1b.plot(traj["step"], traj["D_Sigma"],
                 color=C_METHOD["BN-adapt"], lw=1.5, ls=":", alpha=0.85,
                 label="$D_\\Sigma$")[0]
-ax1b.set_ylabel("$D_\\Sigma$", fontsize=12, color=C_METHOD["BN-adapt"])
+ax1b.set_ylabel("$D_\\Sigma$", fontsize=8, color=C_METHOD["BN-adapt"])
 ax1b.tick_params(axis="y", labelcolor=C_METHOD["BN-adapt"])
 
 # ΔAUC annotation (top-right, below legend position)
 delta = traj["auc"].iloc[-1] - src_auc
 ax1.text(0.96, 0.12, f"ΔAUC = {delta:+.3f}",
          transform=ax1.transAxes, ha="right", va="bottom",
-         fontsize=12, fontweight="bold", color=C_METHOD["TENT"])
+         fontsize=8, fontweight="bold", color=C_METHOD["TENT"])
 
 # Merged single legend (frameoff, upper-left)
 ax1.legend(handles=[ln1, ln2], loc="upper left", frameon=False,
-           handlelength=1.5, fontsize=10)
+           handlelength=1.5, fontsize=7)
 
 # Spines: remove top, keep colored left/right
 ax1.spines["top"].set_visible(False)
@@ -118,7 +99,7 @@ ax1b.spines["right"].set_color(C_METHOD["BN-adapt"])
 ax1.grid(True, axis="y", color=".85", linestyle="--", linewidth=0.3, alpha=0.2)
 ax1.set_axisbelow(True)
 
-ax1.set_title("(a) Cora, shift=0  (1 seed — placeholder)", fontsize=14, pad=6)
+ax1.set_title("(a) Cora, shift=0  (1 seed — placeholder)", fontsize=9, pad=4)
 
 # ══════════════════════════════════════════════════════════════════════════════
 # Panel (b): Violin plot — ΔAUC by method
@@ -175,10 +156,10 @@ if all(len(v) > 0 for v in data_by_method):
     _sig_bracket(ax2, 2.9, 3.1, ymin - 0.05 * y_range, p_bt)
 
 ax2.set_xticks([1, 2, 3])
-ax2.set_xticklabels(methods, fontsize=11)
-ax2.set_ylabel("ΔAUC (relative to source)", fontsize=12)
+ax2.set_xticklabels(methods, fontsize=8)
+ax2.set_ylabel("ΔAUC (relative to source)", fontsize=8)
 ax2.set_title(f"(b) {target_ds}, shift={sub['shift'].iloc[0]:.1f}, 5 seeds",
-              fontsize=14, pad=6)
+              fontsize=9, pad=4)
 
 # Panel (b) style: remove top/right spines, light grid
 ax2.spines["top"].set_visible(False)

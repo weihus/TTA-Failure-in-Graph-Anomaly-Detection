@@ -1,0 +1,59 @@
+======================================================================
+E5-lite ENCODER GENERALITY: mean ΔAUC (shift=0)
+======================================================================
+
+dataset   encoder  method
+citeseer  gat      SHOT     -0.222
+                   TENT     -0.271
+          gcn      SHOT     -0.057
+                   TENT     -0.097
+          sage     SHOT     -0.006
+                   TENT     -0.003
+cora      gat      SHOT     -0.262
+                   TENT     -0.398
+          gcn      SHOT     -0.102
+                   TENT     -0.180
+          sage     SHOT     -0.001
+                   TENT     -0.006
+pubmed    gat      SHOT     -0.101
+                   TENT     -0.198
+          gcn      SHOT     -0.106
+                   TENT     -0.322
+          sage     SHOT     -0.009
+                   TENT     -0.011
+reddit    gat      SHOT     -0.011
+                   TENT     -0.014
+          gcn      SHOT     -0.088
+                   TENT     -0.084
+          sage     SHOT     -0.036
+                   TENT     -0.025
+
+Source AUC by (dataset, encoder):
+dataset   encoder
+citeseer  gat        0.993
+          gcn        0.993
+          sage       1.000
+cora      gat        0.995
+          gcn        0.996
+          sage       1.000
+pubmed    gat        0.999
+          gcn        0.999
+          sage       1.000
+reddit    gat        0.674
+          gcn        0.660
+          sage       0.710
+
+Gate (AUC_0 > 0.65) pass/fail counts:
+dataset   encoder
+citeseer  gat        1.0
+          gcn        1.0
+          sage       1.0
+cora      gat        1.0
+          gcn        1.0
+          sage       1.0
+pubmed    gat        1.0
+          gcn        1.0
+          sage       1.0
+reddit    gat        1.0
+          gcn        1.0
+          sage       1.0

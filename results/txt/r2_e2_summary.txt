@@ -1,0 +1,37 @@
+======================================================================
+E2 ANOMALY-RATIO SWEEP: mean ΔAUC (maha_diag)
+======================================================================
+
+dataset       citeseer   cora  pubmed  reddit
+ratio method                                 
+0.01  SHOT      -0.001 -0.002  -0.001  -0.084
+      TENT      -0.001 -0.003  -0.000  -0.266
+0.02  SHOT      -0.001 -0.002  -0.008  -0.135
+      TENT      -0.001 -0.005  -0.001  -0.205
+0.05  SHOT      -0.005 -0.006  -0.001  -0.155
+      TENT      -0.004 -0.024  -0.001  -0.107
+0.10  SHOT      -0.012 -0.012  -0.002  -0.095
+      TENT      -0.009 -0.010  -0.002  -0.201
+0.20  SHOT      -0.020 -0.064  -0.003  -0.110
+      TENT      -0.014 -0.044  -0.003  -0.206
+
+Normal-node gradient share (entropy mass), by ratio:
+ratio
+0.01    0.991
+0.02    0.982
+0.05    0.954
+0.10    0.908
+0.20    0.817
+
+Mechanism check: degradation should DEEPEN as ratio ↓
+(larger share of gradient from normal nodes).
+
+Spearman(ratio, ΔAUC) per dataset×method (positive ⇒ lower ratio worse):
+  cora      TENT: rho=-0.690 p=0.0001
+  cora      SHOT: rho=-0.906 p=0.0000
+  citeseer  TENT: rho=-0.922 p=0.0000
+  citeseer  SHOT: rho=-0.930 p=0.0000
+  pubmed    TENT: rho=-0.812 p=0.0000
+  pubmed    SHOT: rho=-0.498 p=0.0113
+  reddit    TENT: rho=+0.204 p=0.3281
+  reddit    SHOT: rho=-0.035 p=0.8670

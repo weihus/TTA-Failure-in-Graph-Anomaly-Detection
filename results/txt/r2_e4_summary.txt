@@ -1,0 +1,26 @@
+======================================================================
+E4 UNTUNED LR: mean ΔAUC by lr_mode × method (shift=0)
+======================================================================
+
+                          mean    std  <lambda_0>
+method lr_mode                                   
+SHOT   entropy_selected -0.069  0.021         1.0
+       fixed_1e-4       -0.036  0.012         1.0
+       fixed_3e-5       -0.008  0.008         1.0
+TENT   entropy_selected -0.159  0.104         1.0
+       fixed_1e-4       -0.042  0.013         1.0
+       fixed_3e-5       -0.008  0.008         1.0
+
+Selected lr distribution:
+dataset   method
+citeseer  SHOT      0.00003
+          TENT      0.00003
+cora      SHOT      0.00003
+          TENT      0.00003
+pubmed    SHOT      0.00003
+          TENT      0.00003
+reddit    SHOT      0.00003
+          TENT      0.00003
+
+Reading: if fixed-lr degradation ≈ entropy-selected degradation,
+selection bias is ruled out as the driver of the headline result.

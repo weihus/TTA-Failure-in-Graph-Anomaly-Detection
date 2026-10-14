@@ -1,0 +1,58 @@
+==============================================================================
+P0 DECISION TABLE: mean ΔAUC by dataset × method × scorer
+==============================================================================
+scorer           maha_diag  maha_full  knn_k5  knn_k10     kde
+dataset  method                                               
+citeseer SHOT      -0.0462    -0.0249 -0.0423  -0.0458 -0.0543
+         TENT      -0.0688    -0.0256 -0.0293  -0.0330 -0.0639
+cora     SHOT      -0.1061    -0.0407 -0.0674  -0.0717 -0.0422
+         TENT      -0.1589    -0.0460 -0.0655  -0.0733 -0.0248
+inj_cora SHOT      -0.0484    -0.0207  0.0053  -0.0057  0.0097
+         TENT      -0.0647    -0.0183 -0.0115  -0.0253  0.0152
+pubmed   SHOT      -0.1065    -0.0298 -0.0399  -0.0448 -0.0058
+         TENT      -0.3012    -0.0384 -0.0596  -0.0662 -0.0026
+reddit   SHOT      -0.0838    -0.0533 -0.0344  -0.0378  0.0184
+         TENT      -0.0666    -0.0476 -0.0417  -0.0419  0.0166
+weibo    SHOT      -0.1194    -0.0932 -0.0381  -0.0351 -0.0070
+         TENT      -0.1233    -0.0725 -0.0140  -0.0132 -0.0066
+
+------------------------------------------------------------------------------
+PERSISTENCE: fraction of seeds with ΔAUC<0, and mean ΔAUC
+------------------------------------------------------------------------------
+scorer           kde  knn_k10  knn_k5  maha_diag  maha_full
+dataset  method                                            
+citeseer SHOT    1.0      1.0     1.0        1.0        1.0
+         TENT    1.0      1.0     1.0        1.0        1.0
+cora     SHOT    1.0      1.0     1.0        1.0        1.0
+         TENT    0.8      1.0     1.0        1.0        1.0
+inj_cora SHOT    0.4      0.6     0.4        1.0        1.0
+         TENT    0.2      0.8     0.6        1.0        1.0
+pubmed   SHOT    0.6      1.0     1.0        1.0        1.0
+         TENT    0.6      1.0     1.0        1.0        1.0
+reddit   SHOT    0.2      1.0     1.0        1.0        1.0
+         TENT    0.4      1.0     1.0        1.0        1.0
+weibo    SHOT    1.0      0.8     1.0        1.0        1.0
+         TENT    0.8      1.0     1.0        1.0        1.0
+
+------------------------------------------------------------------------------
+AMPLIFICATION: maha_diag mean ΔAUC vs best distribution-free (knn_k10)
+------------------------------------------------------------------------------
+  citeseer  SHOT : maha_diag=-0.0462  knn_k10=-0.0458  amplification=+1.01x
+  citeseer  TENT : maha_diag=-0.0688  knn_k10=-0.0330  amplification=+2.08x
+  cora      SHOT : maha_diag=-0.1061  knn_k10=-0.0717  amplification=+1.48x
+  cora      TENT : maha_diag=-0.1589  knn_k10=-0.0733  amplification=+2.17x
+  inj_cora  SHOT : maha_diag=-0.0484  knn_k10=-0.0057  amplification=+8.49x
+  inj_cora  TENT : maha_diag=-0.0647  knn_k10=-0.0253  amplification=+2.56x
+  pubmed    SHOT : maha_diag=-0.1065  knn_k10=-0.0448  amplification=+2.38x
+  pubmed    TENT : maha_diag=-0.3012  knn_k10=-0.0662  amplification=+4.55x
+  reddit    SHOT : maha_diag=-0.0838  knn_k10=-0.0378  amplification=+2.22x
+  reddit    TENT : maha_diag=-0.0666  knn_k10=-0.0419  amplification=+1.59x
+  weibo     SHOT : maha_diag=-0.1194  knn_k10=-0.0351  amplification=+3.41x
+  weibo     TENT : maha_diag=-0.1233  knn_k10=-0.0132  amplification=+9.31x
+
+==============================================================================
+VERDICT
+==============================================================================
+Distribution-free scorers: mean frac<0 = 84%, mean ΔAUC = -0.0300
+=> DEGRADATION PERSISTS under distribution-free scoring.
+=> Gaussian-assumption artifact RULED OUT as root cause (R2 refuted).

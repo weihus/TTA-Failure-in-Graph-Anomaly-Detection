@@ -1,0 +1,77 @@
+================================================================================
+P2 NON-GAUSSIAN SHIFT: mean ΔAUC at shift=0.1 by shift_kind × method
+================================================================================
+
+[scorer = maha_diag]
+method                 SHOT    TENT
+dataset  shift_kind                
+citeseer gaussian   -0.0500 -0.0685
+         mixture    -0.0497 -0.0685
+         sparse     -0.0402 -0.0636
+         student_t  -0.0004  0.0090
+cora     gaussian   -0.1105 -0.1577
+         mixture    -0.1072 -0.1604
+         sparse     -0.0905 -0.1464
+         student_t   0.0051  0.0053
+pubmed   gaussian   -0.1422 -0.3005
+         mixture    -0.1328 -0.2953
+         sparse     -0.0681 -0.2827
+         student_t   0.0003  0.0015
+reddit   gaussian   -0.0587 -0.0443
+         mixture    -0.0525 -0.0387
+         sparse     -0.0769 -0.0567
+         student_t   0.0070  0.0225
+
+[scorer = knn_k10]
+method                 SHOT    TENT
+dataset  shift_kind                
+citeseer gaussian   -0.0499 -0.0336
+         mixture    -0.0502 -0.0342
+         sparse     -0.0457 -0.0319
+         student_t   0.0027 -0.0060
+cora     gaussian   -0.0720 -0.0738
+         mixture    -0.0699 -0.0741
+         sparse     -0.0596 -0.0656
+         student_t  -0.0069  0.0085
+pubmed   gaussian   -0.0418 -0.0682
+         mixture    -0.0443 -0.0678
+         sparse     -0.0434 -0.0592
+         student_t  -0.0007  0.0003
+reddit   gaussian   -0.0262 -0.0389
+         mixture    -0.0268 -0.0326
+         sparse     -0.0130 -0.0288
+         student_t   0.0058  0.0032
+
+--------------------------------------------------------------------------------
+PERSISTENCE under each shift family (knn_k10, frac seeds ΔAUC<0) + mean ΔAUC
+--------------------------------------------------------------------------------
+
+frac<0:
+shift_kind       gaussian  mixture  sparse  student_t
+dataset  method                                      
+citeseer SHOT         1.0      1.0     1.0        0.6
+         TENT         1.0      1.0     1.0        0.6
+cora     SHOT         1.0      1.0     1.0        0.6
+         TENT         1.0      1.0     1.0        0.4
+pubmed   SHOT         1.0      1.0     1.0        0.8
+         TENT         1.0      1.0     1.0        0.4
+reddit   SHOT         1.0      1.0     0.8        0.2
+         TENT         1.0      1.0     1.0        0.4
+
+mean ΔAUC:
+shift_kind       gaussian  mixture  sparse  student_t
+dataset  method                                      
+citeseer SHOT     -0.0499  -0.0502 -0.0457     0.0027
+         TENT     -0.0336  -0.0342 -0.0319    -0.0060
+cora     SHOT     -0.0720  -0.0699 -0.0596    -0.0069
+         TENT     -0.0738  -0.0741 -0.0656     0.0085
+pubmed   SHOT     -0.0418  -0.0443 -0.0434    -0.0007
+         TENT     -0.0682  -0.0678 -0.0592     0.0003
+reddit   SHOT     -0.0262  -0.0268 -0.0130     0.0058
+         TENT     -0.0389  -0.0326 -0.0288     0.0032
+
+================================================================================
+VERDICT (R3: Gaussian-shift artifact?)
+================================================================================
+Non-Gaussian families (student_t/mixture/sparse): mean frac<0=82%, mean ΔAUC=-0.0308
+=> DEGRADATION PERSISTS under non-Gaussian shifts. Gaussian-shift artifact RULED OUT (R3 refuted).

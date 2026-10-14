@@ -1,0 +1,87 @@
+======================================================================
+NON-GAUSSIAN SCORING SUMMARY  (mean ΔAUC over seeds)
+======================================================================
+
+[shift=0.0]
+  -- cora --
+    No-TTA   maha_diag=+0.000  maha_full=+0.000  knn_k5=+0.000  knn_k10=+0.000  kde=+0.000
+    TENT     maha_diag=-0.145  maha_full=-0.045  knn_k5=-0.061  knn_k10=-0.069  kde=-0.019
+    SHOT     maha_diag=-0.093  maha_full=-0.039  knn_k5=-0.059  knn_k10=-0.064  kde=-0.019
+  -- citeseer --
+    No-TTA   maha_diag=+0.000  maha_full=+0.000  knn_k5=+0.000  knn_k10=+0.000  kde=+0.000
+    TENT     maha_diag=-0.066  maha_full=-0.025  knn_k5=-0.029  knn_k10=-0.034  kde=-0.053
+    SHOT     maha_diag=-0.044  maha_full=-0.025  knn_k5=-0.042  knn_k10=-0.046  kde=-0.054
+  -- pubmed --
+    No-TTA   maha_diag=+0.000  maha_full=+0.000  knn_k5=+0.000  knn_k10=+0.000  kde=+0.000
+    TENT     maha_diag=-0.302  maha_full=-0.039  knn_k5=-0.057  knn_k10=-0.064  kde=-0.016
+    SHOT     maha_diag=-0.070  maha_full=-0.036  knn_k5=-0.042  knn_k10=-0.048  kde=-0.025
+
+[shift=0.1]
+  -- cora --
+    No-TTA   maha_diag=+0.000  maha_full=+0.000  knn_k5=+0.000  knn_k10=+0.000  kde=+0.000
+    TENT     maha_diag=-0.157  maha_full=-0.048  knn_k5=-0.065  knn_k10=-0.073  kde=-0.017
+    SHOT     maha_diag=-0.112  maha_full=-0.040  knn_k5=-0.069  knn_k10=-0.073  kde=-0.048
+  -- citeseer --
+    No-TTA   maha_diag=+0.000  maha_full=+0.000  knn_k5=+0.000  knn_k10=+0.000  kde=+0.000
+    TENT     maha_diag=-0.071  maha_full=-0.027  knn_k5=-0.031  knn_k10=-0.034  kde=-0.058
+    SHOT     maha_diag=-0.050  maha_full=-0.027  knn_k5=-0.046  knn_k10=-0.051  kde=-0.043
+  -- pubmed --
+    No-TTA   maha_diag=+0.000  maha_full=+0.000  knn_k5=+0.000  knn_k10=+0.000  kde=+0.000
+    TENT     maha_diag=-0.301  maha_full=-0.038  knn_k5=-0.063  knn_k10=-0.068  kde=+0.009
+    SHOT     maha_diag=-0.142  maha_full=-0.023  knn_k5=-0.038  knn_k10=-0.042  kde=+0.012
+
+======================================================================
+PERSISTENCE CHECK: degradation under distribution-free scorers
+======================================================================
+
+[shift=0.0] fraction of (dataset,seed) with ΔAUC<0
+    cora      TENT  maha_diag: frac<0= 100%  meanΔ=-0.1449
+    cora      TENT  knn_k5   : frac<0= 100%  meanΔ=-0.0615
+    cora      TENT  knn_k10  : frac<0= 100%  meanΔ=-0.0686
+    cora      TENT  kde      : frac<0=  60%  meanΔ=-0.0186
+    citeseer  TENT  maha_diag: frac<0= 100%  meanΔ=-0.0662
+    citeseer  TENT  knn_k5   : frac<0= 100%  meanΔ=-0.0294
+    citeseer  TENT  knn_k10  : frac<0= 100%  meanΔ=-0.0344
+    citeseer  TENT  kde      : frac<0= 100%  meanΔ=-0.0535
+    pubmed    TENT  maha_diag: frac<0= 100%  meanΔ=-0.3016
+    pubmed    TENT  knn_k5   : frac<0= 100%  meanΔ=-0.0566
+    pubmed    TENT  knn_k10  : frac<0= 100%  meanΔ=-0.0643
+    pubmed    TENT  kde      : frac<0= 100%  meanΔ=-0.0164
+    cora      SHOT  maha_diag: frac<0= 100%  meanΔ=-0.0932
+    cora      SHOT  knn_k5   : frac<0= 100%  meanΔ=-0.0590
+    cora      SHOT  knn_k10  : frac<0= 100%  meanΔ=-0.0636
+    cora      SHOT  kde      : frac<0=  40%  meanΔ=-0.0186
+    citeseer  SHOT  maha_diag: frac<0= 100%  meanΔ=-0.0443
+    citeseer  SHOT  knn_k5   : frac<0= 100%  meanΔ=-0.0424
+    citeseer  SHOT  knn_k10  : frac<0= 100%  meanΔ=-0.0463
+    citeseer  SHOT  kde      : frac<0= 100%  meanΔ=-0.0541
+    pubmed    SHOT  maha_diag: frac<0= 100%  meanΔ=-0.0699
+    pubmed    SHOT  knn_k5   : frac<0= 100%  meanΔ=-0.0425
+    pubmed    SHOT  knn_k10  : frac<0= 100%  meanΔ=-0.0481
+    pubmed    SHOT  kde      : frac<0= 100%  meanΔ=-0.0251
+
+[shift=0.1] fraction of (dataset,seed) with ΔAUC<0
+    cora      TENT  maha_diag: frac<0= 100%  meanΔ=-0.1573
+    cora      TENT  knn_k5   : frac<0= 100%  meanΔ=-0.0654
+    cora      TENT  knn_k10  : frac<0= 100%  meanΔ=-0.0727
+    cora      TENT  kde      : frac<0=  40%  meanΔ=-0.0171
+    citeseer  TENT  maha_diag: frac<0= 100%  meanΔ=-0.0709
+    citeseer  TENT  knn_k5   : frac<0= 100%  meanΔ=-0.0312
+    citeseer  TENT  knn_k10  : frac<0= 100%  meanΔ=-0.0344
+    citeseer  TENT  kde      : frac<0= 100%  meanΔ=-0.0583
+    pubmed    TENT  maha_diag: frac<0= 100%  meanΔ=-0.3005
+    pubmed    TENT  knn_k5   : frac<0= 100%  meanΔ=-0.0634
+    pubmed    TENT  knn_k10  : frac<0= 100%  meanΔ=-0.0684
+    pubmed    TENT  kde      : frac<0=   0%  meanΔ=+0.0094
+    cora      SHOT  maha_diag: frac<0= 100%  meanΔ=-0.1117
+    cora      SHOT  knn_k5   : frac<0= 100%  meanΔ=-0.0690
+    cora      SHOT  knn_k10  : frac<0= 100%  meanΔ=-0.0731
+    cora      SHOT  kde      : frac<0=  80%  meanΔ=-0.0481
+    citeseer  SHOT  maha_diag: frac<0= 100%  meanΔ=-0.0503
+    citeseer  SHOT  knn_k5   : frac<0= 100%  meanΔ=-0.0462
+    citeseer  SHOT  knn_k10  : frac<0= 100%  meanΔ=-0.0506
+    citeseer  SHOT  kde      : frac<0= 100%  meanΔ=-0.0429
+    pubmed    SHOT  maha_diag: frac<0= 100%  meanΔ=-0.1419
+    pubmed    SHOT  knn_k5   : frac<0= 100%  meanΔ=-0.0382
+    pubmed    SHOT  knn_k10  : frac<0= 100%  meanΔ=-0.0422
+    pubmed    SHOT  kde      : frac<0=  20%  meanΔ=+0.0119

@@ -1,0 +1,22 @@
+======================================================================
+E7: CIRCULARITY CHECK — ρ(M_A^2 [Maha-based], AUC [per scorer])
+======================================================================
+
+[kde] pooled: rho(M2_A, delta_AUC) = -0.049  p=8.38e-01  N=20
+    cora      : rho=-0.049  p=0.838  N=20
+
+[knn_k10] pooled: rho(M2_A, delta_AUC) = +0.003  p=9.90e-01  N=20
+    cora      : rho=+0.003  p=0.990  N=20
+
+[knn_k5] pooled: rho(M2_A, delta_AUC) = +0.003  p=9.90e-01  N=20
+    cora      : rho=+0.003  p=0.990  N=20
+
+[maha_diag] pooled: rho(M2_A, delta_AUC) = +0.296  p=2.05e-01  N=20
+    cora      : rho=+0.296  p=0.205  N=20
+
+[maha_full] pooled: rho(M2_A, delta_AUC) = +0.102  p=6.68e-01  N=20
+    cora      : rho=+0.102  p=0.668  N=20
+
+Reading: if rho stays high for knn/kde scorers, M_A^2 tracks
+GEOMETRY (scorer-independent); if it collapses, the paper's
+0.90-0.97 correlation is partly circular. Report both honestly.

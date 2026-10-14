@@ -1,0 +1,23 @@
+======================================================================
+E9 BN-ARCH CONTROL: mean ΔAUC on BN-augmented GCN (shift=0)
+======================================================================
+
+dataset   method  
+citeseer  BN-adapt   -0.000
+          SHOT       -0.025
+          TENT       -0.026
+cora      BN-adapt    0.000
+          SHOT       -0.106
+          TENT       -0.112
+pubmed    BN-adapt    0.001
+          SHOT       -0.037
+          TENT       -0.049
+reddit    BN-adapt    0.185
+          SHOT       -0.028
+          TENT        0.006
+
+           mean    std  <lambda_0>
+method                            
+BN-adapt  0.046  0.088        0.25
+SHOT     -0.049  0.062        0.95
+TENT     -0.045  0.061        0.90

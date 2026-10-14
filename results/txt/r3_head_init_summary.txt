@@ -1,0 +1,35 @@
+========================================================================
+R3 HEAD-INIT CONTROL: mean ΔAUC by arm × method (shift=0)
+========================================================================
+
+dataset   arm             method
+citeseer  random          SHOT     -0.046
+                          TENT     -0.068
+          source_trained  SHOT     -0.003
+                          TENT     -0.007
+cora      random          SHOT     -0.081
+                          TENT     -0.178
+          source_trained  SHOT     -0.018
+                          TENT     -0.025
+pubmed    random          SHOT     -0.064
+                          TENT     -0.313
+          source_trained  SHOT     -0.007
+                          TENT     -0.008
+reddit    random          SHOT     -0.079
+                          TENT     -0.085
+          source_trained  SHOT     -0.049
+                          TENT     -0.080
+
+Head AUC at init (source_trained arm):
+dataset
+citeseer    0.871
+cora        0.766
+pubmed      0.960
+reddit      0.527
+
+Gradient-norm share (normal / total), TENT random arm:
+dataset
+citeseer    0.857
+cora        0.801
+pubmed      0.853
+reddit      0.870

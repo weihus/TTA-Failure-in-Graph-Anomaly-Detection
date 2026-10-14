@@ -1,0 +1,33 @@
+==========================================================================
+R3 CLEAN RATIO SWEEP: ONE fixed checkpoint, nested sub-graphs, gradient norms
+==========================================================================
+
+Source AUC by ε (5 nested-pool replicates):
+ratio             0.01   0.02   0.05   0.10   0.20
+dataset  method                                   
+citeseer SHOT    0.013  0.023  0.016 -0.000 -0.045
+         TENT   -0.000  0.018  0.007 -0.007 -0.046
+cora     SHOT   -0.014  0.027  0.035  0.008 -0.075
+         TENT   -0.077 -0.005  0.021 -0.005 -0.079
+pubmed   SHOT    0.003  0.010  0.017  0.016 -0.009
+         TENT    0.000  0.009  0.015  0.015 -0.009
+reddit   SHOT    0.116  0.076  0.038 -0.038 -0.100
+         TENT    0.112  0.069  0.026 -0.043 -0.110
+
+Gradient-norm share (normal/total), TENT, mean over run:
+ratio      0.01   0.02   0.05   0.10   0.20
+dataset                                    
+citeseer  0.964  0.940  0.885  0.828  0.749
+cora      0.928  0.894  0.840  0.783  0.711
+pubmed    0.952  0.927  0.868  0.789  0.704
+reddit    0.968  0.929  0.846  0.754  0.657
+
+Spearman(ε, ΔAUC) per dataset×method (positive = lower ratio worse, mechanism direction):
+  cora      TENT  rho=-0.12 p=0.563
+  cora      SHOT  rho=-0.33 p=0.103
+  citeseer  TENT  rho=-0.53 p=0.006
+  citeseer  SHOT  rho=-0.57 p=0.003
+  pubmed    TENT  rho=-0.13 p=0.525
+  pubmed    SHOT  rho=-0.17 p=0.420
+  reddit    TENT  rho=-0.93 p=0.000
+  reddit    SHOT  rho=-0.93 p=0.000

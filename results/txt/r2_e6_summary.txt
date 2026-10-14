@@ -1,0 +1,16 @@
+======================================================================
+E6: M_N^2 DECOMPOSITION — in-sample MLE vs unbiased vs held-out
+======================================================================
+
+          mn2_insample_mle  mn2_insample_unbiased  mn2_heldout  mn2_theory_mle  frac_dims_eps_floor  eps_inflation_mean
+dataset                                                                                                                
+citeseer            63.199                 63.179      112.276          63.980                0.010               0.987
+cora                62.865                 62.841      179.110          63.975                0.021               0.982
+pubmed              63.104                 63.100       62.077          63.997                0.036               0.986
+reddit              38.998                 38.995       38.888          63.994                0.391               0.609
+
+Reading: if mn2_insample_mle ≈ mn2_theory_mle ≈ d, the paper's
+negative-bias explanation is CORRECT and 46 was an artifact of
+specific adapted states, not source embeddings. If held-out ≈ d
+but in-sample ≪ d, estimation bias is the driver (R2 right).
+If frac_dims_eps_floor > 0 substantially, variance clipping matters.
